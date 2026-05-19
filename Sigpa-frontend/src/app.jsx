@@ -9,7 +9,7 @@ import Perfil from './pages/pages-estudiante/Perfil';
 import Agenda from './pages/pages-estudiante/agenda';
 import Evaluaciones from './pages/pages-estudiante/evaluaciones';
 import PerfilSupervisor from './pages/pages-supervisor/PerfilSupervisor';
-import InicioSupervisor from './pages/pages-supervisor/InicioSupervisor';
+import InicioSupervisor from './pages/pages-supervisor/iniciosupervisor';
 import PracticasSupervisor from './pages/pages-supervisor/PracticasSupervisor';
 import SeguimientosSupervisor from './pages/pages-supervisor/SeguimientosSupervisor';
 import InicioTeacher from './pages/pages-teacher/InicioTeacher';
