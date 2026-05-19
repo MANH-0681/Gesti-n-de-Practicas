@@ -14,7 +14,7 @@ import {
 
 import Sidebar from '../../components/admin/sidebar';
 import StatCard from '../../components/teacher/statcard';
-import '../../styles/styles-admin/inicioadmin.css';
+import '../../styles/styles-admin/InicioAdmin.css';
 
 const COLORS = ['#4f46e5', '#10b981', '#f59e0b', '#ef4444', '#3b82f6', '#8b5cf6'];
 
