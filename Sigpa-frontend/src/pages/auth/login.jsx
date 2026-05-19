@@ -12,6 +12,7 @@ const LoginPage = () => {
     e.preventDefault();
 
     try {
+      console.log("API URL:", import.meta.env.VITE_API_URL);
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/auth/login`,
         {
