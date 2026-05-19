@@ -1,0 +1,160 @@
+:root {
+  /* Paleta original refinada */
+  --color-primary: #1E88E5;       
+  --color-primary-dark: #0D47A1;   
+  --color-primary-contrast: #FFFFFF;
+
+  /* Fondos con más "aire" */
+  --color-bg: #f0f4f8; /* Un gris azulado muy suave que cansa menos la vista */
+  --color-surface: rgba(255, 255, 255, 0.9);
+  --color-muted: #64748b;         
+  --color-border: #cbd5e1;         
+  --color-text: #0f172a;          
+
+  /* Sombras modernas (Capas múltiples para realismo) */
+  --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 20px rgba(30, 136, 229, 0.2);
+
+  /* Bordes más orgánicos */
+  --radius-md: 16px; 
+  --radius-sm: 10px;
+  
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top right, #e0e7ff, var(--color-bg));
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* HEADER: Efecto Cristal */
+header {
+  width: 100%;
+  background: rgba(30, 136, 229, 0.85);
+  backdrop-filter: blur(10px); /* Glassmorphism */
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-soft);
+  color: white;
+}
+
+/* MAIN: Espaciado más generoso */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px);
+  padding: 40px 20px;
+}
+
+/* FORMULARIO: El "Hero" de la página */
+#form-register {
+  width: 100%;
+  max-width: 750px;
+  padding: 40px;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255, 255, 255, 0.6); /* Borde sutil */
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 24px;
+  
+  /* Animación de entrada */
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#form-register h2 {
+  grid-column: span 2;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--color-primary-dark);
+  margin-bottom: 15px;
+  letter-spacing: -0.025em;
+}
+
+/* Labels más profesionales */
+#form-register label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Inputs Premium */
+#form-register input,
+#form-register select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  background: #f8fafc;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+#form-register input:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-glow);
+  transform: scale(1.01);
+}
+
+/* Botones con Feedback Visual */
+#form-register button {
+  grid-column: span 2;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-top: 10px;
+}
+
+#form-register button:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(13, 71, 161, 0.2);
+}
+
+#form-register button:active {
+  transform: translateY(0);
+}
+
+/* Responsivo para móviles */
+@media (max-width: 600px) {
+  #form-register {
+    grid-template-columns: 1fr;
+    padding: 25px;
+  }
+  #form-register h2, .full {
+    grid-column: span 1;
+  }
+}

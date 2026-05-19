@@ -1,0 +1,207 @@
+:root {
+  /* Paleta mejorada (mismos tonos, mayor pureza) */
+  --color-primary: #1E88E5;
+  --color-primary-light: #e3f2fd; /* Un azul mucho más aireado para el fondo */
+  --color-primary-dark: #0D47A1;
+  --color-primary-contrast: #FFFFFF;
+
+  /* Neutros con matices azulados para que no se vea "sucio" */
+  --color-bg: #f8fafc;
+  --color-surface: #FFFFFF;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-text: #0f172a;
+
+  /* Sombras de "Nueva Generación" (Capas suaves) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-primary: 0 10px 15px -3px rgba(30, 136, 229, 0.3);
+
+  /* Bordes y Fuentes */
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ------------------------------------------- */
+/* RESET Y CONTENEDOR */
+/* ------------------------------------------- */
+body {
+    margin: 0;
+    font-family: var(--font-family-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ------------------------------------------- */
+/* PANEL IZQUIERDO (Look Moderno) */
+/* ------------------------------------------- */
+.left-panel {
+    flex: 2;
+    /* Gradiente sutil para que no sea un bloque plano */
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, #ffffff 100%);
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Círculo decorativo de fondo para dar profundidad */
+.left-panel::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: var(--color-primary);
+    filter: blur(80px);
+    opacity: 0.07;
+    border-radius: 50%;
+    top: -100px;
+    right: -100px;
+}
+
+.left-panel h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-primary-dark);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.left-panel p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    max-width: 420px;
+}
+
+.app-mockup {
+    width: 100%;
+    max-width: 440px;
+    height: 320px;
+    margin-top: 50px;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    border: 8px solid white; /* Efecto marco de dispositivo */
+    transition: transform 0.4s ease;
+}
+
+.app-mockup:hover {
+    transform: translateY(-10px) rotate(-1deg);
+}
+
+/* ------------------------------------------- */
+/* PANEL DERECHO (Formulario Limpio) */
+/* ------------------------------------------- */
+.right-panel {
+    flex: 3;
+    background-color: var(--color-surface);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.logo {
+    margin-bottom: 60px;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.logo h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+/* ------------------------------------------- */
+/* COMPONENTES (Botones e Inputs) */
+/* ------------------------------------------- */
+.form-section h3 {
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.form-section h3::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+    margin-left: 15px;
+}
+
+.btn {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.primary {
+    background-color: var(--color-primary-dark);
+    color: white;
+    border: none;
+    box-shadow: var(--shadow-primary);
+}
+
+.primary:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px -5px rgba(30, 136, 229, 0.4);
+}
+
+.secondary {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+}
+
+.secondary:hover {
+    background-color: var(--color-bg);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* Responsivo para móviles */
+@media (max-width: 900px) {
+    .container { flex-direction: column; }
+    .left-panel { padding: 40px 20px; }
+    .app-mockup { display: none; }
+}

@@ -1,0 +1,546 @@
+/*====== LAYOUT PRINCIPAL =====*/
+.main-content {
+  flex: 1;
+  padding: 20px 40px;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.main-header {
+  width: 100%;
+  margin-top: 0 !important;
+  margin-bottom: auto;
+  align-self: flex-start;
+  padding-top: 10px;
+}
+
+/* Oculta cualquier SVG intruso que React pueda inyectar */
+.main-content > svg:first-child {
+  display: none !important;
+}
+
+/*====== CABECERA / SALUDO =====*/
+.contenedor-cabecera {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 0 20px 0;
+  margin-top: -15px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 30px;
+  flex-shrink: 0;
+}
+
+.bloque-saludo h1 {
+  color: #1e293b;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.bloque-saludo p {
+  color: #64748b;
+  font-size: 1rem;
+  margin: 4px 0 0 0;
+}
+
+.company-name-highlight {
+  color: #1E88E5;
+  font-weight: 600;
+}
+
+/*====== STATS CARDS =====*/
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/*====== CONTENEDOR PRINCIPAL DE WIDGETS =====*/
+.dashboard-widgets-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  align-items: stretch;
+  margin-top: 20px;
+}
+
+/*====== COLUMNA IZQUIERDA =====*/
+.left-widgets {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.right-widgets {
+  min-width: 0;
+}
+
+/*====== BASE WIDGET CARD — declaración única y limpia =====*/
+.widget-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(16, 24, 40, 0.06);
+}
+
+/*====== WIDGET HEADER =====*/
+.widget-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  flex-shrink: 0;
+  margin-bottom: 4px;
+}
+
+.widget-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+/*====== WIDGET BODY =====*/
+.widget-body-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 12px;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   WIDGET BARRAS — clase específica: .widget-spaces
+   ===================================================== */
+
+/* Cada fila (label + barra) */
+.widget-spaces .career-item {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin-bottom: 14px;
+}
+.widget-spaces .career-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Header de la fila: nombre a la izquierda, conteo a la derecha */
+.widget-spaces .career-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;          /* ← fuerza al flex respetar el ancho del padre */
+  min-width: 0;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  color: #475569;
+  box-sizing: border-box;
+}
+
+/* El nombre puede truncarse si no hay espacio */
+.widget-spaces .bar-label {
+  flex: 1 1 0;
+  min-width: 0;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* El conteo NUNCA se recorta */
+.widget-spaces .bar-count {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Pista de la barra */
+.widget-spaces .career-bar-track {
+  width: 100%;
+  height: 10px;
+  background: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Relleno de la barra */
+.widget-spaces .career-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  border-radius: 999px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* =====================================================
+   WIDGET TORTA — clase específica: .widget-time
+   ===================================================== */
+.pie-chart-wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.pie-chart-circle {
+  flex: 0 0 140px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+}
+
+.pie-chart-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.pie-chart-legend-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+}
+
+.pie-chart-legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.pie-chart-legend-label {
+  font-size: 0.85rem;
+  color: #475569;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* =====================================================
+   WIDGET DERECHA — clase específica: .widget-right
+   ===================================================== */
+.widget-right {
+  width: 100%;
+  max-height: 640px;
+  overflow-y: auto;
+}
+
+.practice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 4px;
+  overflow-y: auto;
+}
+
+.practice-item {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 12px;
+  border-left: 3px solid #10b981;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+  box-sizing: border-box;
+}
+
+.practice-item.danger {
+  border-left-color: #ef4444;
+}
+
+.practice-item .practice-item-info h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.practice-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #64748b;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+  margin-top: 2px;
+}
+
+.practice-status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.practice-status-badge.active {
+  background: #e6ffef;
+  color: #065f46;
+}
+
+.practice-status-badge.danger {
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+/* Barra de progreso genérica (usada en practice-item) */
+.career-bar-track {
+  width: 100%;
+  height: 6px;
+  background: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.career-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s ease-in-out;
+}
+
+/*====== ESTADO VACÍO =====*/
+.empty-state {
+  text-align: center;
+  color: #94a3b8;
+  padding: 20px;
+  font-size: 0.95rem;
+}
+
+
+/*====================
+======================
+INICIO ADMIN 
+======================
+====================*/
+
+/* ── FILA INFERIOR (dos tortas) ── */
+.adm-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+ 
+/* ── Widget alto para la tabla (columna derecha) ── */
+.adm-widget-tall {
+  max-height: 640px;
+  overflow-y: auto;
+}
+ 
+/* ── TABLA DE PRÁCTICAS ── */
+.adm-table-wrapper {
+  overflow-x: auto;
+  margin-top: 8px;
+}
+ 
+.adm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+ 
+.adm-table thead tr {
+  background: #f1f5f9;
+}
+ 
+.adm-table th {
+  text-align: left;
+  padding: 8px 10px;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+ 
+.adm-table td {
+  padding: 10px 10px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  vertical-align: middle;
+}
+ 
+.adm-table tbody tr:hover {
+  background: #f8fafc;
+}
+ 
+.adm-table tbody tr:last-child td {
+  border-bottom: none;
+}
+ 
+/* ── Celda con icono ── */
+.adm-cell-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  color: #1e293b;
+}
+ 
+.adm-cell-icon {
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+ 
+/* ── Badge de fecha ── */
+.adm-date-badge {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #475569;
+  border-radius: 6px;
+  padding: 2px 7px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+ 
+/* ── BARRAS GENÉRICAS DEL ADMIN ── */
+.adm-bar-row {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+}
+ 
+.adm-bar-row:last-child {
+  margin-bottom: 0;
+}
+ 
+.adm-bar-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+  font-size: 0.88rem;
+  color: #475569;
+}
+ 
+.adm-bar-label {
+  flex: 1 1 0;
+  min-width: 0;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+ 
+.adm-bar-count {
+  flex-shrink: 0;
+  font-weight: 600;
+  color: #1e293b;
+  white-space: nowrap;
+}
+ 
+.adm-bar-track {
+  width: 100%;
+  height: 9px;
+  background: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+ 
+.adm-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  opacity: 0.85;
+  transition: width 0.5s ease-in-out;
+}
+ 
+/* ── GRÁFICO DE TORTA ── */
+.adm-pie-wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+ 
+.adm-pie-circle {
+  flex: 0 0 130px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+}
+ 
+.adm-pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 0;
+  min-width: 0;
+}
+ 
+.adm-pie-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+ 
+.adm-pie-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+ 
+.adm-pie-label {
+  font-size: 0.84rem;
+  color: #475569;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+ 
+/* ── ESTADO VACÍO ── */
+.adm-empty {
+  text-align: center;
+  color: #94a3b8;
+  padding: 20px;
+  font-size: 0.92rem;
+}
+ 
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .adm-bottom-row {
+    grid-template-columns: 1fr;
+  }
+}

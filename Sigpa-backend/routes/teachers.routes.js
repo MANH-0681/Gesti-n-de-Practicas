@@ -1,0 +1,13 @@
+const express = require('express');
+const router = express.Router();
+const teacherController = require('../controllers/teachers.controller');
+const auth = require('../middlewares/auth');
+router.post('/crearteacher', teacherController.createTeacher);
+router.post('/crearteacheradmin', teacherController.createTeacherAdmin);
+router.get('/docentes', teacherController.getTeacher);
+router.get('/docentes/:teacher_id', teacherController.getTeacherById);
+router.get('/docentes-students/:teacher_id', teacherController.getTeacherByIdStudents);
+router.get('/dashboard-data', auth, teacherController.getTeacherDashboardData);
+router.get('/allTeachers', auth, teacherController.getAllTeachers);
+router.put('/updateTeacher/:id', auth, teacherController.updateTeacher);
+module.exports = router;

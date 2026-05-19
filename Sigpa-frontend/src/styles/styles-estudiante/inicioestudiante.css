@@ -1,0 +1,66 @@
+
+
+
+
+/*====== CONTENIDO BLANCO =====*/
+.main-content {
+  flex: 1;
+  padding: 20px 40px;      /* Reducimos el espacio de arriba de 40 a 20 */
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start !important; /* <--- ESTO MUEVE TODO HACIA ARRIBA */
+  align-items: flex-start;
+  overflow-y: auto;
+  
+}
+
+.main-header {
+  width: 100%;
+  margin-top: 0 !important;          /* Eliminamos cualquier margen superior */
+  margin-bottom: auto;     /* Mantiene el espacio para las tarjetas de abajo */
+  align-self: flex-start; /* Se alinea a sí mismo al principio del eje */
+  padding-top: 10px;
+}
+/* Si hay un icono intruso, esto lo fulmina */
+.main-content > svg:first-child {
+  display: none !important;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Estilos para posicionar el saludo arriba sin ensuciar el JSX */
+.contenedor-cabecera {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 0 20px 0; /* 0 arriba, 0 derecha, 20px abajo, 0 izquierda */
+  margin-top: -15px;    /* Sube el saludo para alinearlo con el menú */
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 30px;
+}
+
+.bloque-saludo h1 {
+  color: #1e293b;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.bloque-saludo p {
+  color: #64748b;
+  font-size: 1rem;
+  margin: 4px 0 0 0;
+}
+
+.dashboard-fila {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+  width: 100%;
+}

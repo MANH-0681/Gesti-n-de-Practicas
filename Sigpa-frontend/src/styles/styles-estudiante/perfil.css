@@ -1,0 +1,433 @@
+/* Incluye tu :root aquí al inicio del archivo */
+:root {
+  /* Paleta principal (Tus colores originales) */
+  --color-primary: #1E88E5;       
+  --color-primary-dark: #0D47A1;   
+  --color-primary-contrast: #FFFFFF;
+
+  /* Neutros Refinados */
+  --color-bg: #f8fafc; 
+  --color-surface: rgba(255, 255, 255, 0.95);
+  --color-muted: #94a3b8;        
+  --color-border: #e2e8f0;         
+  --color-text: #1e293b;          
+
+  /* Estados */
+  --color-success: #10b981;        
+  --color-warning: #f59e0b;        
+  --color-danger:  #ef4444;        
+
+  /* Sombras "Deep" (Más modernas) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 25px -5px rgba(30, 136, 229, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-btn: 0 4px 14px 0 rgba(30, 136, 229, 0.39);
+
+  /* Espaciado / radio */
+  --radius-md: 16px; 
+  --radius-sm: 8px;
+  
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* =========================================
+   Layout Principal
+========================================= */
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  background-color: var(--color-bg);
+  font-family: var(--font-family-sans);
+  color: var(--color-text);
+}
+
+.main-content { 
+  margin-left: 300px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.profile-container {
+  padding: 2.5rem 3rem;
+  max-width: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+.profile-header {
+  margin-bottom: 2rem;
+}
+
+.profile-header h1 {
+  font-size: 1.8rem;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.5rem;
+}
+
+.profile-header p {
+  color: var(--color-muted);
+}
+
+/* =========================================
+   Estados de Carga y Error
+========================================= */
+.loading-state, .error-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  font-family: var(--font-family-sans);
+}
+
+.error-state {
+  color: var(--color-danger);
+}
+
+/* =========================================
+   Tarjetas de Estadísticas (StatCards)
+========================================= */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  border: 1px solid var(--color-border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-icon {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: var(--color-primary-contrast);
+  height: 50px;
+  width: 50px;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.stat-title {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* =========================================
+   Grilla del Perfil (Info + Prácticas)
+========================================= */
+.profile-content-grid-estudiante {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  gap: 2rem;
+}
+
+@media (max-width: 1100px) {
+  .profile-content-grid {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .profile-content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.profile-card {
+  background: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+}
+
+.profile-card h3 {
+  color: var(--color-primary-dark);
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.75rem;
+}
+
+/* =========================================
+   Información Personal
+========================================= */
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.info-item strong {
+  color: var(--color-text);
+  min-width: 140px;
+}
+
+.info-item span {
+  color: var(--color-muted);
+}
+
+.info-item svg {
+  color: var(--color-primary);
+}
+
+/* =========================================
+   Lista de Prácticas
+========================================= */
+.practices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.practice-card {
+  background: linear-gradient(135deg, var(--color-border));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem;
+  transition: border-color 0.2s ease;
+}
+
+.practice-card:hover {
+  border-color: var(--color-primary);
+}
+
+.practice-card h4 {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.modality-badge {
+  display: inline-block;
+  background-color: var(--color-primary);
+  
+  color: var(--color-primary-contrast);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.practice-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--color-text);
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.detail-item svg {
+  color: var(--color-primary);
+  margin-top: 0.2rem;
+}
+
+.detail-item strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 0.2rem;
+}
+
+.detail-item p {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin: 0;
+  font-weight: 500;
+}
+
+.detail-item small {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+.no-data {
+  color: var(--color-muted);
+  font-style: italic;
+  text-align: center;
+  padding: 2rem 0;
+}
+/* =========================================
+   Botones de Perfil
+========================================= */
+
+.button-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.button-group button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-family-sans);
+  transition: all 0.2s ease;
+  margin-right: auto;
+
+  
+}
+
+.button-group button:first-child {
+
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+    
+}
+.button-group button:first-child:hover {
+  background-color: var(--color-bg);
+  border-color: var(--color-primary);
+ 
+}
+
+.button-group button:first-child:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.button-group button:last-child {
+ background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  
+}
+
+.button-group button:last-child:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* =========================================
+   Inputs del Perfil
+========================================= */
+
+.info-item input {
+  width: 100%;
+  max-width: 250px;
+
+  padding: 0.7rem 0.9rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  background: white;
+
+  font-size: 0.92rem;
+  font-family: var(--font-family-sans);
+
+  color: var(--color-text);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.info-item input:focus {
+  outline: none;
+
+  border-color: var(--color-primary);
+
+  box-shadow:
+    0 0 0 4px rgba(30, 136, 229, 0.12);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   Inputs agrupados
+========================================= */
+
+.info-item > div {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* =========================================
+   Responsive Inputs
+========================================= */
+
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .info-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .info-item strong {
+    min-width: auto;
+  }
+
+  .info-item input {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .button-group button {
+    width: 100%;
+  }
+
+  .practice-details {
+    grid-template-columns: 1fr;
+  }
+}

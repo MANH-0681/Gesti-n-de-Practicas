@@ -1,0 +1,75 @@
+.grid-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.2rem 1.4rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.grid-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.grid-card-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1e3a5f;
+}
+
+.grid-card-title h3 { font-size: 15px; font-weight: 600; margin: 0; }
+
+.paginacion { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+
+.pag-btn {
+    background: none;
+    border: 1px solid #dde3ed;
+    border-radius: 6px;
+    padding: 2px 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.pag-btn:disabled { opacity: 0.4; cursor: default; }
+
+.vacantes-lista { display: flex; flex-direction: column; gap: 10px; }
+
+.vacante-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #eef0f5;
+    border-radius: 10px;
+    padding: 10px 12px;
+    gap: 10px;
+}
+
+.vacante-info h4 { font-size: 13px; font-weight: 600; margin: 0 0 2px; }
+.vacante-info p  { font-size: 12px; color: #666; margin: 0 0 4px; }
+.vacante-fecha   { font-size: 11px; color: #999; }
+
+.btn-postular {
+    background: #1e3a5f;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    width: 75px;  
+    height: 28px;
+}
+
+.estado-vacio, .estado-carga {
+    font-size: 13px;
+    color: #aaa;
+    text-align: center;
+    padding: 1rem 0;
+}

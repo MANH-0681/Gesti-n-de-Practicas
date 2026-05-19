@@ -1,0 +1,186 @@
+:root {
+  /* Paleta principal (Tus colores originales) */
+  --color-primary: #1E88E5;       
+  --color-primary-dark: #0D47A1;   
+  --color-primary-contrast: #FFFFFF;
+
+  /* Neutros Refinados */
+  --color-bg: #f8fafc; /* Un gris azulado más limpio */
+  --color-surface: rgba(255, 255, 255, 0.95);
+  --color-muted: #94a3b8;         
+  --color-border: #e2e8f0;         
+  --color-text: #1e293b;          
+
+  /* Estados */
+  --color-success: #10b981;        
+  --color-warning: #f59e0b;        
+  --color-danger:  #ef4444;        
+
+  /* Sombras "Deep" (Más modernas) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 25px -5px rgba(30, 136, 229, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-btn: 0 4px 14px 0 rgba(30, 136, 229, 0.39);
+
+  /* Espaciado / radio */
+  --radius-md: 16px; /* Bordes más redondeados para un look orgánico */
+  --radius-sm: 8px;
+  
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* ============================
+   ESTILOS GENERALES
+============================ */
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top right, #e3f2fd, #f8fafc);
+  font-family: var(--font-family-sans);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ============================
+   HEADER (Más minimalista)
+============================ */
+header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px); /* Efecto cristal */
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header::before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    background: var(--color-primary);
+    border-radius: 8px;
+    margin-right: 12px;
+}
+
+/* ============================
+   CONTENEDOR
+============================ */
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* ============================
+   LOGIN BOX (Transformación total)
+============================ */
+.login-box {
+  background: var(--color-surface);
+  padding: 40px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 380px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-box h2 {
+  text-align: center;
+  color: var(--color-primary-dark);
+  margin-bottom: 30px;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+}
+
+/* Inputs */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-muted);
+  margin-bottom: 8px;
+  margin-left: 4px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border);
+  background: #fcfcfd;
+  font-size: 15px;
+  color: var(--color-text);
+  box-sizing: border-box; /* Crucial para el padding */
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.1);
+}
+
+/* ============================
+   BOTONES
+============================ */
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Botón principal con efecto de elevación */
+#form-login button[type="submit"] {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  box-shadow: var(--shadow-btn);
+}
+
+#form-login button[type="submit"]:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(13, 71, 161, 0.23);
+}
+
+#form-login button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Botón secundario */
+#form-login button[type="button"] {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  margin-top: 15px;
+}
+
+#form-login button[type="button"]:hover {
+  background: rgba(30, 136, 229, 0.05);
+}

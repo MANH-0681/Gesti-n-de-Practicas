@@ -1,0 +1,54 @@
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: 24px;
+  max-width: 100%;
+}
+
+.dashboard-main h2 {
+  margin: 0 0 18px;
+  color: #102a43;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.loading-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #334e68;
+  background: #f5f7fb;
+}
+
+@media (max-width: 920px) {
+  .dashboard-main {
+    padding: 18px;
+  }
+
+  .custom-table {
+    min-width: 640px;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .custom-table,
+  .table-container {
+    min-width: auto;
+  }
+
+  .custom-table th,
+  .custom-table td {
+    padding: 12px 10px;
+  }
+}

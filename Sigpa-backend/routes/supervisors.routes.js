@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const { createSupervisor, getSupervisorsByUniversity, getSupervisorDashboardData, getAllSupervisors, updateSupervisor } = require('../controllers/supervisors.controller');
+const auth = require('../middlewares/auth');
+const esAdministrador = require('../middlewares/esAdministrador');
+router.get('/supervisorsByUniversity', auth, getSupervisorsByUniversity);
+router.post('/register', createSupervisor);
+router.get('/dashboard-data', auth, getSupervisorDashboardData);
+router.get('/allSupervisors', auth, getAllSupervisors);
+router.put('/updateSupervisor/:id', auth, updateSupervisor);
+module.exports = router;

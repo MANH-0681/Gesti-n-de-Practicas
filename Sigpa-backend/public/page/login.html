@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/login.css">
+</head>
+<body>
+    <header>
+        <div class="izquierda">
+           <div class="usuario-menu" id="usuarioMenu">
+    </a>
+
+
+    <div class="usuario-logueado" id="usuarioLogueado" style="display:none;">
+        
+
+        <div class="dropdown-usuario">
+          
+            <a href="/src/pages/perfil.html"><img src="/src/image/usuario.png" alt="login" class=""></a>
+            <button id="cerrarSesionBtn">Cerrar sesión</button>
+        </div>
+    </div>
+</div>
+    </header>
+    <div class="main-content">
+    <form id="form-login" class="login-box">
+    <h2>LOGIN</h2>
+
+    <label for="username">USUARIO:</label>
+    <input type="text" id="username" name="username">
+
+    <label for="password">CONTRASEÑA:</label>
+    <input type="password" id="password" name="password">
+
+    <button type="submit">Ingresar</button>
+    <button type="button" onclick="location.href='/public/index.html'">Volver</button>
+</form>
+    </div>
+    <script src="/public/js/login.js"></script>
+
+
+</body>
+</html>
