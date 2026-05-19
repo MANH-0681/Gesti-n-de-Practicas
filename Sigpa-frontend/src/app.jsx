@@ -5,7 +5,7 @@ import Home from './pages/home';
 import RegisterPage from './pages/auth/register';
 import LoginPage from './pages/auth/login';
 import InicioEstudiante from './pages/pages-estudiante/inicioestudiante';
-import Perfil from './pages/pages-estudiante/perfil';
+import Perfil from './pages/pages-estudiante/Perfil';
 import Agenda from './pages/pages-estudiante/agenda';
 import Evaluaciones from './pages/pages-estudiante/evaluaciones';
 import PerfilSupervisor from './pages/pages-supervisor/PerfilSupervisor';
