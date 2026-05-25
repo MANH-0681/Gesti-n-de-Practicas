@@ -56,7 +56,7 @@ const InicioEstudiante = () => {
       const text = await res.text();
       console.log("RESPUESTA CRUDA:", text);
 
-      let data; // 👈 Declaración correcta
+      let data; 
 
       try {
         data = JSON.parse(text);
@@ -66,7 +66,7 @@ const InicioEstudiante = () => {
         return;
       }
 
-      // IMPORTANTE: tu backend devuelve { follow_ups: [], evaluations: [] }
+
       setSeguimientos(data.follow_ups || []);
       setEvaluaciones(data.evaluations || []);
       setSupervisor(data.supervisor || null);
